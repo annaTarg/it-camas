@@ -9,8 +9,6 @@ import Dialogs from "../Dialogs";
 const DialogsContainer = (props) => {
   let state = props.store.getState().dialogsReducer;
 
-  console.log(props.store)
-
   let onSendMessageClick = () => {
     props.store.dispatch(sendMessageCreator());
   };
