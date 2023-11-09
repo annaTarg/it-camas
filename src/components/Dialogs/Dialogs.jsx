@@ -2,16 +2,15 @@ import React from "react";
 import s from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import store from "../../redux/redux-store";
 
 const Dialogs = (props) => {
-  let state = props.store.dialogsPage;
+  let state = props.dialogsState;
 
-  let dialogsElement = state.dialogsPage.dialogsDate.map((dialog) => (
+  let dialogsElement = state.dialogs.map((dialog) => (
     <DialogItem name={dialog.name} id={dialog.id} />
   ));
 
-  let messagesElements = state.dialogsPage.messagesDate.map((m) => (
+  let messagesElements = state.messages.map((m) => (
     <Message message={m.message} />
   ));
   let newMessageBody = state.newMessageBody;

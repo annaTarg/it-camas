@@ -1,5 +1,5 @@
 import React from "react";
-import store, {
+import {
   sendMessageCreator,
   updateNewMessageBodyCreator,
 } from "../../../redux/dialogs-reducer";
@@ -7,20 +7,22 @@ import store, {
 import Dialogs from "../Dialogs";
 
 const DialogsContainer = (props) => {
-  let state = props.store.getState().dialogsPage;
+  let state = props.store.getState().dialogsReducer;
+
+  console.log(props.store)
 
   let onSendMessageClick = () => {
-    store.dispatch(sendMessageCreator());
+    props.store.dispatch(sendMessageCreator());
   };
   let onNewMessageChange = (body) => {
-    store.dispatch(updateNewMessageBodyCreator(body));
+    props.store.dispatch(updateNewMessageBodyCreator(body));
   };
 
   return (
     <Dialogs
       updateNewMessageBody={onNewMessageChange}
       sendMessage={onSendMessageClick}
-      dialogsPage={state}
+      dialogsState={state}
     />
   );
 };

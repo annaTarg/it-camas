@@ -15,7 +15,7 @@ let initialState = {
     { id: 3, message: "Yo" },
   ],
 
-  newMessageBody: "aaa",
+  newMessageBody: "",
 };
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {

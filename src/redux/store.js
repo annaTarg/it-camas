@@ -28,7 +28,7 @@ let store = {
         { id: 3, message: "Yo" },
       ],
     },
-    newMessageBody: "aaa",
+    newMessageBody: "",
     sidebar: {},
   },
   getState() {
