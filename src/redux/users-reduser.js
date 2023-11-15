@@ -2,7 +2,35 @@ const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
 let initialState = {
-  users: [],
+  users: [
+    {
+      id: 1,
+      photoUrl:
+        "https://ichef.bbci.co.uk/news/1024/cpsprodpb/06DB/production/_130055710_mishov2.png",
+      followed: false,
+      fullName: "Dmitry",
+      status: "I am boss",
+      location: { city: "Minsk", country: "Belarus" },
+    },
+    {
+      id: 2,
+      photoUrl:
+        "https://ichef.bbci.co.uk/news/1024/cpsprodpb/06DB/production/_130055710_mishov2.png",
+      followed: true,
+      fullName: "Sasha",
+      status: "I am boss too",
+      location: { city: "Moscow", country: "Russia" },
+    },
+    {
+      id: 3,
+      photoUrl:
+        "https://ichef.bbci.co.uk/news/1024/cpsprodpb/06DB/production/_130055710_mishov2.png",
+      followed: false,
+      fullName: "Adrey ",
+      status: "I am boss too",
+      location: { city: "Kiev", country: "Ukraina" },
+    },
+  ],
 };
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -27,7 +55,7 @@ const userReducer = (state = initialState, action) => {
         }),
       };
     case SET_USERS: {
-      return { ...state, users: [...state.users, ...action.users] };
+      return { ...state, users: action.users };
     }
 
     default:
